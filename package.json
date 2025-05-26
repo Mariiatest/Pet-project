@@ -1,0 +1,22 @@
+{
+  "name": "pet-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test",
+    "test file":"npx playwright test file",
+    "report":"npx playwright show-report",
+    "test --ui":"npx playwright test --ui",
+    "debug":"npx playwright test --debug"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@eslint/js": "^9.25.1",
+    "@playwright/test": "^1.50.1",
+    "@types/node": "^22.13.4",
+    "eslint": "^9.25.1",
+    "prettier": "^3.5.3"
+  }
+}
