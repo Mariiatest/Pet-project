@@ -7,11 +7,5 @@ export class Homepage {
  iconHeaderBasket = '[rziconname="icon-header-basket"]'
  elementOnHomepage = '[class="item"]'
  loginIcon = '[rziconname="icon-user-simple"]'
-
-
-
-
-
-
-
+ codeStep = '[data-qaid="code-step"]'
 }

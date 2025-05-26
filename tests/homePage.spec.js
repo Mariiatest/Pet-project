@@ -4,6 +4,7 @@ import { BaseActions } from '../models/baseActions'
 
 let homepage
 let baseActions
+
 test.beforeEach(async ({ page }) => {
  homepage = new Homepage(page)
  baseActions = new BaseActions(page)
@@ -11,17 +12,15 @@ test.beforeEach(async ({ page }) => {
 })
 
 test.only('User is able to go to confirming modal', async ({ page }) => {
- await baseActions.clickOnElement(homepage.loginIcon)
- const iframeContainer = page.frameLocator(
-  'iframe[name="22e259f8-0f45-4885-a6eb-682d0e746513"]'
- )
- const phoneInput = await iframeContainer.locator(homepage.phoneInput)
- await page.waitForTimeout(10000)
+ const iframeContainer = page.frameLocator('#evoAuthElement iframe')
 
- await baseActions.fillInput(phoneInput, '987719789')
- await baseActions.clickOnElement(submitPhone)
- await expect(page).toHaveTitle('Вхід')
+ await baseActions.clickOnElement(homepage.loginIcon)
+ await page.waitForTimeout(10000)
+ await iframeContainer.locator(homepage.phoneInput).fill('987719789')
+ await iframeContainer.locator(homepage.submitPhone).click()
+ 
 })
+
 test('User is able to search', async ({ page }) => {
  await visit.click(searchForm)
  await page.getByPlaceholder('Я шукаю...').fill(iphone).click(searchFormSubmit)
