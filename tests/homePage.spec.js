@@ -28,4 +28,5 @@ test('User is able to search', async ({ page }) => {
  await expect(page).toHaveURL(
   '/**/mobile-phones/c80003/producer=apple/#search_text=iphone'
  )
+ test()
 })
