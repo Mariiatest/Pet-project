@@ -11,21 +11,24 @@ test.beforeEach(async ({ page }) => {
  await page.goto('https://rozetka.com.ua/')
 })
 
-test.only('User is able to go to confirming modal', async ({ page }) => {
+test('User is able to go to confirming modal', async ({ page }) => {
  const iframeContainer = page.frameLocator('#evoAuthElement iframe')
 
  await baseActions.clickOnElement(homepage.loginIcon)
- await page.waitForTimeout(10000)
+ await expect(iframeContainer.locator(homepage.phoneInput)).toBeVisible()
  await iframeContainer.locator(homepage.phoneInput).fill('987719789')
  await iframeContainer.locator(homepage.submitPhone).click()
- 
+ await iframeContainer.locator(homepage.codeStep).isVisible()
 })
 
-test('User is able to search', async ({ page }) => {
- await visit.click(searchForm)
- await page.getByPlaceholder('Я шукаю...').fill(iphone).click(searchFormSubmit)
- await expect(page).toHaveURL(
-  '/**/mobile-phones/c80003/producer=apple/#search_text=iphone'
- )
- test('User')
+test('User is able to search by input name', async ({ page }) => {
+ await baseActions.fillInput(homepage.searchFormInput, 'iphone')
+ await baseActions.clickOnElement(homepage.searchFormSubmit)
+ await expect(page.url()).toContain('?text=iphone')
 })
+// // test('Search by Product Code', async ({ page }) => {
+// // const input = page.getByPlaceholder('Я шукаю...')
+// //  await baseActions.fillInput('input', '123456789')
+// //  await baseActions.clickOnElement(homepage.searchFormSubmit)
+// //  await expect (page)
+// })
