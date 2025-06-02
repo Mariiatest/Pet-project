@@ -26,9 +26,13 @@ test('User is able to search by input name', async ({ page }) => {
  await baseActions.clickOnElement(homepage.searchFormSubmit)
  await expect(page.url()).toContain('?text=iphone')
 })
-// // test('Search by Product Code', async ({ page }) => {
-// // const input = page.getByPlaceholder('Я шукаю...')
-// //  await baseActions.fillInput('input', '123456789')
-// //  await baseActions.clickOnElement(homepage.searchFormSubmit)
-// //  await expect (page)
-// })
+test.only('Search by Product Code', async ({ page }) => {
+ await baseActions.fillInput(homepage.searchFormInput, 'iphone16')
+ await baseActions.clickOnElement(homepage.searchFormSubmit)
+ const categoryGoods = []
+ for (const item of categoryGoods) {
+  const locator = page.locator(`text=${item}`)
+  console.log(await page.content())
+  await expect(locator).toContainText('iphone 16')
+ }
+})
