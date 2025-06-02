@@ -9,5 +9,5 @@ export class Homepage {
  elementOnHomepage = '[class="item"]'
  loginIcon = '[rziconname="icon-user-simple"]'
  codeStep = '[data-qaid="code-step"]'
-
+categoryGoods= '[data-testid="category_goods"].content'
 }
