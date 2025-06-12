@@ -14,7 +14,16 @@ export class BaseActions {
    return tagName === 'input' || tagName === 'textarea'
   })
  }
-
+async isElementVisible(selector) {
+    return await this.page.isVisible(selector);
+  }
+  async sortItems(optionText) {
+    const optionLocator = 
+   
+    await optionLocator.click();
+  
+  
+}
  async fillInput(selector, data) {
   const isInput = await this.isInputElement(this.page, selector)
   if (isInput) {
