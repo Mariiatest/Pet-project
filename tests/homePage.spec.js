@@ -48,7 +48,7 @@ test('Search unavailable item', async ({ page }) => {
  await baseActions.clickOnElement(homepage.searchNothingChangeButton)
  await baseActions.isElementVisible(homepage.searchFormInput)
 })
-test.only('unchecking checkbox after clicking on catalog options', async ({ page }) => {
+test('unchecking checkbox after clicking on catalog options', async ({ page }) => {
  await baseActions.clickOnElement(homepage.headerCatalog)
  await page.waitForTimeout(10000)
  await page.hover(homepage.asusLink)

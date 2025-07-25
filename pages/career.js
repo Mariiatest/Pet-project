@@ -1,7 +1,9 @@
 export class Career {
  constructor(page) {}
+ IconName= '["icon-menu"]'
  headerVacansies = '.header__vacansies'
- allWaysDropdown = '.select-css--medium: nth-child(1)'
+ allWaysDropdown = '.select-css--medium:nth-child(1)'
+ showVacanciesButton= '[href="https://rozetka.com.ua/ua/careers/catalog/department=9"]'
  allCategories = '.select-css--medium:nth-child(2)'
  allTowns = '.select-css--medium:nth-child(3)'
  displayAll= '[href="https://rozetka.com.ua/ua/careers/catalog/department=9"]'
