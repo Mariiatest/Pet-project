@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test'
 import { Homepage } from '../pages/homepage'
 import { BaseActions } from '../models/baseActions'
+import { TIMEOUT } from 'dns'
 
 let homepage
 let baseActions
@@ -47,10 +48,11 @@ test('Search unavailable item', async ({ page }) => {
  await baseActions.clickOnElement(homepage.searchNothingChangeButton)
  await baseActions.isElementVisible(homepage.searchFormInput)
 })
-test.only('Sorting from cheaper-expensive', async ({ page }) => {
- await baseActions.fillInput(homepage.searchFormInput, 'Zelmer')
- await baseActions.clickOnElement(homepage.searchFormSubmit)
- console.log()
- await baseActions.isElementVisible(homepage.sortingDropdown)
- await baseActions.sortItems('cheap')
+test('unchecking checkbox after clicking on catalog options', async ({ page }) => {
+ await baseActions.clickOnElement(homepage.headerCatalog)
+ await page.waitForTimeout(10000)
+ await page.hover(homepage.asusLink)
+  await baseActions.clickOnElement(homepage.asusLink)
+  await page.waitForSelector(homepage.asusCheckbox, { state: 'visible' });
+  await baseActions.clickOnElement(homepage.asusCheckbox)
 })

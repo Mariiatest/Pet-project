@@ -13,5 +13,8 @@ export class Homepage {
 //  '[data-testid="category_goods"] .content'
 searchNothing = '[class="search-nothing"]'
 searchNothingChangeButton = '.button--medium'
-sortingDropdown = '.catalog-settings__right'
+sortingDropdown = '.setting-sorting font-rozetka'
+headerCatalog = '[data-testid="fat_menu_btn"]'
+asusLink='[href="https://rozetka.com.ua/ua/notebooks/c80004/producer=asus/"]'
+asusCheckbox = '[class="checkbox-filter-link text-base pointer hover:color-green checkbox-filter-link--checked"]'
 }
